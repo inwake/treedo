@@ -2,46 +2,66 @@
   "name": "treedo",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
+  "exports": {
+    "root": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
   "scripts": {
-    "web": "vite -c web/vite.config.js",
-    "build:web": "vite build -c web/vite.config.js",
-    "android": "react-native run-android",
+    "w": "vite -c ./web/vite.config.js --port 3333",
+    "w.bld": "vite build -c ./web/vite.config.js",
+    "a": "react-native run-android",
+    "a-bndl": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle.js --assets-dest android/app/src/main/res/",
+    "a-assmbl": "cd android && gradlew assembleDebug -i && cd ..",
+    "a.cln": "cd android && gradlew clean && cd ..",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest"
+    "lnt": "eslint .",
+    "go": "react-native start",
+    "go.rc": "react-native start --reset-cache",
+    "tst": "jest"
   },
   "dependencies": {
-    "@originjs/vite-plugin-commonjs": "^1.0.3",
-    "@types/react-dom": "^18.2.6",
-    "@vitejs/plugin-react": "^4.0.1",
-    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@babel/runtime": "^7.24.7",
+    "@sentry/react-native": "^5.24.1",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "react": "18.2.0",
-    "react-dom": "^18.2.0",
-    "react-native": "0.72.0",
-    "react-native-web": "^0.19.6",
-    "vite": "^4.3.9"
+    "react-dom": "18.2.0",
+    "react-native": "^0.74.2",
+    "react-native-web": "^0.19.12",
+    "react-router-dom": "^6.23.1",
+    "react-router-native": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "vite": "^5.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.20.0",
-    "@babel/runtime": "^7.20.0",
-    "@react-native/eslint-config": "^0.72.2",
-    "@react-native/metro-config": "^0.72.6",
-    "@tsconfig/react-native": "^3.0.0",
-    "@types/metro-config": "^0.76.3",
-    "@types/react": "^18.0.24",
-    "@types/react-test-renderer": "^18.0.0",
-    "babel-jest": "^29.2.1",
-    "babel-plugin-react-native-web": "^0.19.6",
-    "eslint": "^8.19.0",
-    "jest": "^29.2.1",
-    "metro-react-native-babel-preset": "0.76.5",
-    "prettier": "^2.4.1",
-    "react-test-renderer": "18.2.0",
-    "typescript": "4.8.4"
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@react-native/eslint-config": "^0.74.84",
+    "@react-native/metro-config": "^0.74.84",
+    "@stylistic/eslint-plugin-plus": "^2.2.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "eslint": "^9.5.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-native": "^4.1.0",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-xss": "^0.1.12",
+    "metro-react-native-babel-preset": "^0.77.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.5.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-native": "^4.1.0"
+  },
+  "overrides": {
+    "eslint": "^9.5.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-native": "^4.1.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }

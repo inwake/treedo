@@ -1,10 +1,15 @@
-import React from "react"
-import {Platform, Text} from "react-native"
+import {View, Text, Platform} from 'react-native'
 
 export default function App() {
-  return <Text style={{color: 
-    Platform.OS === "web" ? "green" : "red"
-  }}>
-    Hello World! Your platform is {Platform.OS}
-  </Text>
+  const plfmClrMap = {'android':'green',
+    'ios':'brown',
+    'web':'auqamarine'}
+  const os = Platform.OS.toLowerCase()
+  const clr = plfmClrMap[os] || 'black'
+
+  const style = {color: clr}
+
+  return <View>
+    <Text style={style}>Hello World! Your platform is {clr}</Text>
+  </View>
 }

@@ -34,6 +34,9 @@ local.properties
 *.keystore
 !debug.keystore
 
+# vite
+dist/
+
 # node.js
 #
 node_modules/
@@ -64,3 +67,12 @@ yarn-error.log
 
 # testing
 /coverage
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/treedo/FileContentIndex/209d8431-686b-46f9-a1ff-6347a95fdfc9.vsidx
+.vs/treedo/copilot-chat/9694d1bf/sessions/1a87fc60-784f-4343-977b-10cac41eed99
+.vs/treedo/v17/.wsuo
+.vs/treedo/v17/Browse.VC.db
+.vs/treedo/v17/DocumentLayout.json
+.vscode/settings.json
